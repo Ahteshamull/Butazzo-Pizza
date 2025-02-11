@@ -24,7 +24,16 @@ const Reservation = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-10 px-5 bg-gray-100">
+    <div
+      className="flex justify-center items-center py-10 px-5 bg-gray-100"
+      style={{
+        backgroundImage: `url('assets/reservation.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+       
+        backgroundAttachment: "fixed",
+      }}
+    >
       <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-center text-orange-600 mb-4">
           Online Reservation
@@ -89,7 +98,6 @@ const Reservation = () => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                 required
               />
-                        
             </div>
             <div className="flex-1">
               <label
@@ -160,6 +168,3 @@ const Reservation = () => {
 };
 
 export default Reservation;
-
-
-

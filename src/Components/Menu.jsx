@@ -1,57 +1,110 @@
 import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 
-const categories = ["Burger", "Pizza", "Salad", "Soup", "Drinks"];
+// Categories
+const categories = ["Burger", "Pizza", "Salad", "Soup"];
 
+// Menu items with a category field
 const menuItems = [
   {
     name: "Beef Burger",
     description: "Stack your buns with cheese, bacon, lettuce and more.",
     price: "$12.95",
-    img: "/public/assets/beef-burger-xs.jpg",
+    img: "assets/beef-burger-xs.jpg",
+    category: "Burger",
   },
   {
     name: "Bison Burger",
     description:
       "In a large bowl, combine bison, coriander, and ground mustard.",
     price: "$13.50",
-    img: "/public/assets/beef-burger-xs.jpg",
+    img: "assets/beef-burger-xs.jpg",
+    category: "Burger",
   },
   {
     name: "Black Bean Burger",
     description: "Spiced up with chili sauce, cumin, garlic and chili powder.",
     price: "$9.27",
-    img: "/public/assets/beef-burger-xs.jpg",
+    img: "assets/beef-burger-xs.jpg",
+    category: "Burger",
   },
   {
     name: "Elk Burger",
     description: "Ground elk meat, red onion, cayenne pepper, black pepper.",
     price: "$18.90",
-    img: "/public/assets/beef-burger-xs.jpg",
+    img: "assets/beef-burger-xs.jpg",
+    category: "Burger",
   },
   {
-    name: "Elk Burger",
-    description: "Ground elk meat, red onion, cayenne pepper, black pepper.",
-    price: "$18.90",
-    img: "/public/assets/beef-burger-xs.jpg",
+    name: "Margherita Pizza",
+    description: "Classic pizza with tomato, mozzarella, and fresh basil.",
+    price: "$15.00",
+    img: "assets/margherita-pizza.jpg",
+    category: "Pizza",
   },
   {
-    name: "Elk Burger",
-    description: "Ground elk meat, red onion, cayenne pepper, black pepper.",
-    price: "$18.90",
-    img: "/public/assets/beef-burger-xs.jpg",
+    name: "Pepperoni Pizza",
+    description: "Pepperoni, mozzarella cheese, and marinara sauce.",
+    price: "$16.00",
+    img: "assets/pepperoni-pizza.jpg",
+    category: "Pizza",
+  },
+  {
+    name: "Veggie Pizza",
+    description: "Loaded with bell peppers, olives, mushrooms, and onions.",
+    price: "$14.50",
+    img: "assets/veggie-pizza.jpg",
+    category: "Pizza",
+  },
+  {
+    name: "Caesar Salad",
+    description:
+      "Crisp romaine lettuce, Caesar dressing, croutons, and parmesan.",
+    price: "$8.99",
+    img: "assets/caesar-salad.jpg",
+    category: "Salad",
+  },
+  {
+    name: "Tomato Soup",
+    description: "A warm and comforting tomato soup with a creamy finish.",
+    price: "$7.50",
+    img: "assets/tomato-soup.jpg",
+    category: "Soup",
+  },
+  {
+    name: "Lemonade",
+    description: "Refreshing lemonade made from fresh lemons.",
+    price: "$4.00",
+    img: "assets/lemonade.jpg",
+    category: "Drinks",
   },
 ];
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState("Burger");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+
+  // Filter menu items based on the selected category
+  const filteredItems = menuItems.filter(
+    (item) => item.category === activeCategory
+  );
+
+  // Open the modal with the clicked image
+  const openModal = (img) => {
+    setSelectedImage(img);
+    setIsModalOpen(true);
+  };
+
+  // Close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="max-w-4xl mx-auto text-center p-4">
       <h2 className="text-2xl font-bold text-green-700 mb-4">OUR MENUS</h2>
+
+      {/* Category Buttons */}
       <div className="flex justify-center gap-3 mb-6">
         {categories.map((category) => (
           <button
@@ -61,39 +114,58 @@ const Menu = () => {
                 ? "bg-green-600 text-white"
                 : "border-orange-400 text-orange-500"
             }`}
-            onClick={() => setActiveCategory(category)}
+            onClick={() => setActiveCategory(category)} // Set active category
           >
             {category}
           </button>
         ))}
       </div>
 
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={1}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-        pagination={{ clickable: true }}
-        modules={[Pagination]}
-        className="pb-10"
-      >
-        {menuItems.map((item, index) => (
-          <SwiperSlide key={index} className="flex justify-center">
-            <div className="border rounded-lg p-4 text-center shadow-md w-64">
+      {/* Menu Items Grid Layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* Display filtered menu items */}
+        {filteredItems.map((item, index) => (
+          <div
+            key={index}
+            className="border rounded-lg p-4 text-center shadow-md"
+          >
+            <div className="relative">
               <img
                 src={item.img}
                 alt={item.name}
-                className="w-full h-40 object-cover rounded-lg mb-4"
+                className="w-full h-40 object-cover rounded-lg mb-4 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-110"
+                onClick={() => openModal(item.img)} // Open modal on image click
               />
-              <h3 className="text-lg font-bold text-orange-600">{item.name}</h3>
-              <p className="text-gray-600 text-sm my-2">{item.description}</p>
-              <p className="text-green-600 font-semibold">{item.price}</p>
+              {/* Zoom effect when hovering */}
             </div>
-          </SwiperSlide>
+            <h3 className="text-lg font-bold text-orange-600">{item.name}</h3>
+            <p className="text-gray-600 text-sm my-2">{item.description}</p>
+            <p className="text-green-600 font-semibold">{item.price}</p>
+          </div>
         ))}
-      </Swiper>
+      </div>
+
+      {/* Full-Screen Modal */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          onClick={closeModal}
+        >
+          <div className="relative w-full h-full max-w-4xl">
+            <img
+              src={selectedImage}
+              alt="Zoomed Image"
+              className="w-full h-full object-contain"
+            />
+            <button
+              className="absolute top-4 right-4 text-white text-3xl"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

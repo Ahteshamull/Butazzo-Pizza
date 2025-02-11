@@ -1,5 +1,5 @@
 
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebook ,FaInstagram ,FaLinkedin ,FaPinterest } from "react-icons/fa";
 import Container from './../Layout/Container';
 const Footer = () => {
   return (
@@ -17,13 +17,16 @@ const Footer = () => {
             </a>{" "}
             {/* Instagram Icon */}
             <a href="#" className="text-white text-lg">
-              <FaFacebook />
+              <FaInstagram />
             </a>{" "}
             {/* Pinterest Icon */}
             <a href="#" className="text-white text-lg">
-              <FaFacebook />
+              <FaPinterest />
             </a>{" "}
             {/* LinkedIn Icon */}
+            <a href="#" className="text-white text-lg">
+              <FaLinkedin />
+            </a>{" "}
           </div>
         </footer>
       </Container>

@@ -1,102 +1,86 @@
-import { useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import React from "react";
 import Container from "../Layout/Container";
-
-const slides = [
+import Image1 from "../assets/burger.png";
+import Image2 from "../assets/pizza.png";
+import Image3 from "../assets/tortilla.png";
+import Slider from "react-slick";
+const image = [
   {
     id: 1,
-    image: "/assets/pizza.png",
-    discount: "20% OFF",
+    image: Image1,
+    discount: "20% Off",
     title: "Delicious Burger",
     description:
       "Enjoy the best burger with fresh ingredients and amazing taste.",
   },
   {
     id: 2,
-    image: "/assets/tortilla.png",
-    discount: "15% OFF",
+    image: Image2,
+    discount: "20% Off",
     title: "Tasty Pizza",
     description:
       "Crispy crust, melted cheese, and fresh toppings for a perfect slice.",
   },
   {
     id: 3,
-    image: "/assets/burger.png",
-    discount: "10% OFF",
-    title: "Creamy Pasta",
+    image: Image3,
+    discount: "20% Off",
+    title: "Mouthwatering Tortilla",
     description:
-      "Indulge in our rich and creamy pasta dishes, made to perfection.",
+      "A classic favorite, served with your choice of cheese and sauce.",
   },
+  // Add more images as needed.
 ];
 
 const Banner = () => {
-  const [current, setCurrent] = useState(0);
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
-
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
   return (
-    <div className="bg-primary w-full h-[100vh]">
+    <div className="bg-primary min-h-screen flex items-center justify-between">
       <Container>
-        <div className="relative text-white py-12 flex items-center justify-center">
-          {/* Left Arrow */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 bg-white text-black p-2 rounded-full"
-          >
-            <FaArrowLeft size={20} />
-          </button>
+        <Slider {...settings}>
+          {image.map((item) => (
+            <div className="flex flex-col md:flex-row sm:col-span-6 justify-between items-center px-4 md:px-8 lg:px-12">
+              {/* Image Section */}
+              <div className=" lg:flex gap-10 sm:flex-col-6 items-center">
+                <div className="relative">
+                  <img
+                    src={item.image}
+                    alt="Delicious Burger"
+                    className="w-full  max-w-sm md:max-w-md lg:max-w-lg "
+                  />
+                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-24 h-24 md:w-28 md:h-28 flex items-center justify-center text-center rounded-full bg-yellow text-white">
+                    <span className="text-xl md:text-2xl font-bold">
+                      {item.discount}
+                    </span>
+                  </div>
+                </div>
 
-          {/* Content */}
-          <div className="flex flex-col md:flex-row items-center max-w-4xl mx-auto text-center md:text-left">
-            {/* Image Section */}
-            <div className="relative">
-              <img
-                src={slides[current].image}
-                alt={slides[current].title}
-                className="w-64 h-64 object-contain"
-              />
-              <div className="absolute top-10 right-0 bg-orange-500 text-white p-4 rounded-full text-xl font-bold">
-                {slides[current].discount}
+                <div className="text-center md:text-right mt-10 md:mt-0 md:ml-10 max-w-lg">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold text-white">
+                    {item.title}
+                  </h2>
+                  <hr className="hidden lg:block mt-3 mb-4 mr-1 mx-auto  h-1 bg-yellow w-20" />
+                  <p className="text-base md:text-lg text-white">
+                    {item.description}
+                  </p>
+                  <div className="mt-6">
+                    <button className="bg-transparent text-white border border-yellow hover:bg-yellow hover:text-white rounded-full py-2 px-6 text-sm md:text-base">
+                      Reservation Now
+                    </button>
+                  </div>
+                </div>
               </div>
+
+              {/* Text Content */}
             </div>
-
-            {/* Text Content */}
-            <div className="md:ml-8">
-              <h2 className="text-4xl font-bold">{slides[current].title}</h2>
-              <p className="mt-4 text-lg">{slides[current].description}</p>
-              <button className="mt-6 px-6 py-2 border border-orange-400 text-orange-400 rounded-full uppercase font-bold">
-                Make Reservation
-              </button>
-            </div>
-          </div>
-
-          {/* Right Arrow */}
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 bg-white text-black p-2 rounded-full"
-          >
-            <FaArrowRight size={20} />
-          </button>
-
-          {/* Dots Navigation */}
-          <div className="absolute bottom-4 flex gap-2">
-            {slides.map((_, index) => (
-              <span
-                key={index}
-                className={`w-3 h-3 rounded-full ${
-                  index === current ? "bg-white" : "bg-gray-400"
-                }`}
-                onClick={() => setCurrent(index)}
-              ></span>
-            ))}
-          </div>
-        </div>
+          ))}
+        </Slider>
       </Container>
     </div>
   );

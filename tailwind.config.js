@@ -10,6 +10,10 @@ export default {
         primary: "#0B8228",
         yellow: "#FF7200",
       },
+      animation: {
+        bounce200: "bounce 0.75s infinite 0.2s", // Delay for second dot
+        bounce400: "bounce 0.75s infinite 0.4s", // Delay for third dot
+      },
     },
     container: {
       center: true,

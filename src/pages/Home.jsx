@@ -1,14 +1,14 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
-import Banner from "../Components/Banner";
-import AboutUs from "../Components/About";
+import Banner from "./../Components/Banner";
+import About from "./../Components/About";
 import Menu from "../Components/Menu";
 import Chef from "../Components/Chiff";
-import Gallery from "../Components/Gallery";
-import Contact from "../Components/Contact";
-import Footer from "../Components/Footer";
-import Map from "../Components/Map";
 import Reservation from "../Components/Reservation";
+import Gallery from "../Components/Gallery";
+import Map from "../Components/Map";
+import Contact from "./../Components/Contact";
+import Footer from "./../Components/Footer";
 
 export const Home = () => {
   return (
@@ -16,11 +16,11 @@ export const Home = () => {
       {" "}
       <Navbar />
       <Banner />
-      <AboutUs />
+      <About />
       <Menu />
       <Chef />
-      <Gallery />
       <Reservation />
+      <Gallery />
       <Map />
       <Contact />
       <Footer />
