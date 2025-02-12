@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Reservation = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -23,6 +26,15 @@ const Reservation = () => {
     console.log(formData);
   };
 
+  // Initialize AOS on component mount
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      easing: "ease-out-back", // Easing for animation
+      once: true, // Animations trigger only once when element is in view
+    });
+  }, []);
+
   return (
     <div
       className="flex justify-center items-center py-10 px-5 bg-gray-100"
@@ -30,22 +42,32 @@ const Reservation = () => {
         backgroundImage: `url('assets/reservation.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-       
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-center text-orange-600 mb-4">
+      <div
+        className="w-full max-w-lg bg-white p-8 rounded-lg shadow-md"
+        data-aos="fade-up" // Applying fade-up animation to the form container
+      >
+        <h2
+          className="text-3xl font-bold text-center text-orange-600 mb-4"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           Online Reservation
         </h2>
-        <p className="text-center text-gray-500 mb-6">
+        <p
+          className="text-center text-gray-500 mb-6"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex gap-4">
-            <div className="flex-1">
+            <div className="flex-1" data-aos="fade-up" data-aos-delay="300">
               <label
                 htmlFor="name"
                 className="block text-gray-700 font-medium mb-2"
@@ -62,7 +84,7 @@ const Reservation = () => {
                 required
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1" data-aos="fade-up" data-aos-delay="400">
               <label
                 htmlFor="email"
                 className="block text-gray-700 font-medium mb-2"
@@ -82,7 +104,7 @@ const Reservation = () => {
           </div>
 
           <div className="flex gap-4">
-            <div className="flex-1">
+            <div className="flex-1" data-aos="fade-up" data-aos-delay="500">
               <label
                 htmlFor="phone"
                 className="block text-gray-700 font-medium mb-2"
@@ -99,7 +121,7 @@ const Reservation = () => {
                 required
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1" data-aos="fade-up" data-aos-delay="600">
               <label
                 htmlFor="date"
                 className="block text-gray-700 font-medium mb-2"
@@ -119,7 +141,7 @@ const Reservation = () => {
           </div>
 
           <div className="flex gap-4">
-            <div className="flex-1">
+            <div className="flex-1" data-aos="fade-up" data-aos-delay="700">
               <label
                 htmlFor="time"
                 className="block text-gray-700 font-medium mb-2"
@@ -138,7 +160,7 @@ const Reservation = () => {
             </div>
           </div>
 
-          <div>
+          <div data-aos="fade-up" data-aos-delay="800">
             <label
               htmlFor="message"
               className="block text-gray-700 font-medium mb-2"
@@ -158,6 +180,8 @@ const Reservation = () => {
           <button
             type="submit"
             className="w-full py-3 bg-orange-600 text-white font-bold text-lg rounded-lg hover:bg-orange-700 transition duration-300"
+            data-aos="fade-up"
+            data-aos-delay="900"
           >
             Book Now
           </button>

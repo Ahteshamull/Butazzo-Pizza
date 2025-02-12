@@ -4,6 +4,8 @@ import Image1 from "../assets/burger.png";
 import Image2 from "../assets/pizza.png";
 import Image3 from "../assets/tortilla.png";
 import Slider from "react-slick";
+import AOS from "aos"; // Import AOS
+import "aos/dist/aos.css"; // Import AOS styles
 const image = [
   {
     id: 1,
@@ -45,7 +47,10 @@ const Banner = () => {
       <Container>
         <Slider {...settings}>
           {image.map((item) => (
-            <div className="flex flex-col md:flex-row sm:col-span-6 justify-between items-center px-4 md:px-8 lg:px-12">
+            <div
+              className="flex flex-col md:flex-row sm:col-span-6 justify-between items-center px-4 md:px-8 lg:px-12"
+              data-aos="fade-right"
+            >
               {/* Image Section */}
               <div className=" lg:flex gap-10 sm:flex-col-6 items-center">
                 <div className="relative">
@@ -61,7 +66,10 @@ const Banner = () => {
                   </div>
                 </div>
 
-                <div className="text-center md:text-right mt-10 md:mt-0 md:ml-10 max-w-lg">
+                <div
+                  className="text-center md:text-right mt-10 md:mt-0 md:ml-10 max-w-lg"
+                  data-aos="fade-top"
+                >
                   <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold text-white">
                     {item.title}
                   </h2>

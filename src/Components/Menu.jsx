@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 // Categories
 const categories = ["Burger", "Pizza", "Salad", "Soup"];
@@ -100,12 +102,31 @@ const Menu = () => {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    // Initialize AOS
+    AOS.init({
+      duration: 1000, // Animation duration
+      easing: "ease-out-back", // Easing for animation
+      once: true, // Animations trigger once when the element is in view
+    });
+  }, []);
+
   return (
     <div className="max-w-4xl mx-auto text-center p-4">
-      <h2 className="text-2xl font-bold text-green-700 mb-4">OUR MENUS</h2>
+      <h2
+        className="text-2xl font-bold text-green-700 mb-4"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        OUR MENUS
+      </h2>
 
       {/* Category Buttons */}
-      <div className="flex justify-center gap-3 mb-6">
+      <div
+        className="flex justify-center gap-3 mb-6"
+        data-aos="fade-down"
+        data-aos-delay="200"
+      >
         {categories.map((category) => (
           <button
             key={category}
@@ -128,6 +149,8 @@ const Menu = () => {
           <div
             key={index}
             className="border rounded-lg p-4 text-center shadow-md"
+            data-aos="zoom-in-up" // Unique animation for menu item
+            data-aos-delay={`${index * 100}`} // Stagger animation delays
           >
             <div className="relative">
               <img
@@ -136,7 +159,6 @@ const Menu = () => {
                 className="w-full h-40 object-cover rounded-lg mb-4 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-110"
                 onClick={() => openModal(item.img)} // Open modal on image click
               />
-              {/* Zoom effect when hovering */}
             </div>
             <h3 className="text-lg font-bold text-orange-600">{item.name}</h3>
             <p className="text-gray-600 text-sm my-2">{item.description}</p>
@@ -156,6 +178,8 @@ const Menu = () => {
               src={selectedImage}
               alt="Zoomed Image"
               className="w-full h-full object-contain"
+              data-aos="fade-in" // Zoom-in animation on modal image
+              data-aos-duration="600"
             />
             <button
               className="absolute top-4 right-4 text-white text-3xl"

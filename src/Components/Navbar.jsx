@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "../Layout/Container";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaSearch, FaRegClock, FaPhone, FaBars, FaTimes } from "react-icons/fa";
+import AOS from "aos"; // Import AOS
+import "aos/dist/aos.css"; // Import AOS styles
 
 const menu = [
   { id: 1, name: "Home", link: "/" },
@@ -16,9 +18,11 @@ const menu = [
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState("/"); // Default active menu is the "Home" page
+  const [activeMenu, setActiveMenu] = useState("/");
 
-  // Toggle menu and search visibility
+  // Initialize AOS on component mount
+
+
   const toggleMenu = () => {
     setIsSearchOpen(false); // Close search when menu is opened
     setIsMenuOpen(!isMenuOpen); // Toggle menu open/close
@@ -29,10 +33,9 @@ const Navbar = () => {
     setIsSearchOpen(!isSearchOpen); // Toggle search open/close
   };
 
-  // Set active menu when a link is clicked
   const handleMenuClick = (link) => {
     setActiveMenu(link);
-    setIsMenuOpen(false); // Close the menu after selection (for mobile)
+    setIsMenuOpen(false); // Close the menu after selection
   };
 
   return (
@@ -40,12 +43,12 @@ const Navbar = () => {
       <Container>
         <div className="flex flex-wrap items-center justify-between py-3 px-4 md:px-0">
           {/* Logo on Desktop and Mobile */}
-          <a className="lg:hidden md:block" href="/">
+          <a className="lg:hidden md:block" href="/" data-aos="fade-down">
             <img src="/assets/logo.png" alt="Logo" className="h-10" />
           </a>
 
           {/* Desktop Info (Location, Phone, Hours) */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6" data-aos="fade-up">
             <div className="flex items-center gap-2">
               <IoLocationOutline className="text-yellow text-xl" />
               <h1 className="text-white uppercase text-sm">Your City, 12345</h1>
@@ -61,7 +64,7 @@ const Navbar = () => {
           </div>
 
           {/* Search Icon for Desktop */}
-          <div className="relative">
+          <div className="relative" data-aos="fade-left">
             <div
               className="text-yellow cursor-pointer hidden md:block"
               onClick={toggleSearch}
@@ -91,6 +94,7 @@ const Navbar = () => {
           <button
             className="md:hidden text-white text-2xl"
             onClick={toggleMenu}
+            data-aos="fade-right"
           >
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -101,7 +105,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex justify-between items-center py-3 px-4 md:px-0">
           <div>
-            <a href="/">
+            <a href="/" data-aos="fade-down">
               <img src="/assets/logo.png" alt="Logo" className="h-10" />
             </a>
           </div>
@@ -117,6 +121,7 @@ const Navbar = () => {
                       : ""
                   }`}
                   onClick={() => handleMenuClick(item.link)} // Set active menu when clicked
+                  data-aos="fade-up"
                 >
                   {/* Conditionally render the dot, exclude for "Home" */}
                   {item.link !== "/" && (
@@ -172,6 +177,7 @@ const Navbar = () => {
                       : ""
                   }`}
                   onClick={() => handleMenuClick(item.link)} // Set active menu when clicked
+                  data-aos="fade-up"
                 >
                   {/* Conditionally render the dot, exclude for "Home" */}
                   {item.link !== "/" && (
@@ -189,7 +195,7 @@ const Navbar = () => {
             ))}
 
             {/* Search Icon Inside Mobile Menu */}
-            <div className="flex justify-center mt-6">
+            <div className="flex justify-center mt-6" data-aos="fade-left">
               <div
                 className="text-yellow cursor-pointer"
                 onClick={toggleSearch}

@@ -1,9 +1,12 @@
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 // Importing social media icons from react-icons
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Example chefs data (replace image paths and social media links as needed)
 const chefs = [
@@ -47,9 +50,24 @@ const chefs = [
 ];
 
 const Chef = () => {
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      easing: "ease-out-back", // Easing for animation
+      once: true, // Animations trigger once when the element is in view
+    });
+  }, []);
+
   return (
     <div className="max-w-4xl mx-auto text-center p-4">
-      <h2 className="text-2xl font-bold text-green-700 mb-4">OUR CHEFS</h2>
+      <h2
+        className="text-2xl font-bold text-green-700 mb-4"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        OUR CHEFS
+      </h2>
       <Swiper
         spaceBetween={20}
         slidesPerView={1}
@@ -62,12 +80,19 @@ const Chef = () => {
         className="pb-10"
       >
         {chefs.map((chef, index) => (
-          <SwiperSlide key={index} className="flex justify-center">
+          <SwiperSlide
+            key={index}
+            className="flex justify-center"
+            data-aos="zoom-in"
+            data-aos-delay={`${index * 150}`} // Add staggered effect
+          >
             <div className="relative shadow-lg rounded-lg overflow-hidden w-64 group">
               <img
                 src={chef.img}
                 alt={chef.name}
                 className="w-full h-80 object-cover"
+                data-aos="fade-in"
+                data-aos-delay={`${index * 200}`} // Add different delay for the image
               />
               {/* Overlay on hover */}
               <div className="absolute inset-0 bg-black opacity-50 group-hover:opacity-70 transition duration-300"></div>

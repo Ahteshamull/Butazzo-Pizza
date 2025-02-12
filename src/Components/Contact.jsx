@@ -1,13 +1,24 @@
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Container from "../Layout/Container";
 
 const Contact = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      easing: "ease-out-back", // Easing for animation
+      once: true, // Trigger animations only once
+    });
+  }, []);
+
   return (
     <div className="bg-yellow">
       <Container>
-        <footer className=" text-white py-10 px-5 md:px-20">
+        <footer className="text-white py-10 px-5 md:px-20">
           <div className="grid md:grid-cols-3 gap-8 text-sm">
             {/* About Us */}
-            <div>
+            <div data-aos="fade-up">
               <h2 className="font-bold text-lg mb-2">ABOUT US</h2>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -15,9 +26,9 @@ const Contact = () => {
                 leap into electronic typesetting.
               </p>
             </div>
-  
+
             {/* Working Hours */}
-            <div>
+            <div data-aos="fade-up" data-aos-delay="200">
               <h2 className="font-bold text-lg mb-2">WORKING HOURS</h2>
               <ul className="space-y-1">
                 <li>
@@ -43,9 +54,9 @@ const Contact = () => {
                 </li>
               </ul>
             </div>
-  
+
             {/* Contact Us */}
-            <div>
+            <div data-aos="fade-up" data-aos-delay="400">
               <h2 className="font-bold text-lg mb-2">CONTACT US</h2>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
@@ -69,8 +80,7 @@ const Contact = () => {
         </footer>
       </Container>
     </div>
-    );
-
+  );
 };
 
 export default Contact;

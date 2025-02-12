@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
+    "aos": "^2.3.4",
     "leaflet": "^1.9.4",
     "motion": "^12.4.2",
     "react": "^19.0.0",
