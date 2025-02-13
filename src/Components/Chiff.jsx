@@ -74,10 +74,9 @@ const Chef = () => {
   useEffect(() => {
     
     AOS.init({
-      duration: 1000, // Set the duration of animations
-      easing: "ease-in-out", // Optional: Set easing for the animations
-      once: true,
-    
+      offset: 300,
+      duration: 1000, 
+     
     });
   }, []);
 

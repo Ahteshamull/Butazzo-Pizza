@@ -42,14 +42,14 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-   useEffect(() => {
-      // Initialize AOS
-      AOS.init({
-        duration: 1000, // Set the duration of animations
-        easing: "ease-in-out", // Optional: Set easing for the animations
-        once: true, // Optional: Only animate once
-      });
-    }, []);
+ useEffect(() => {
+     
+     AOS.init({
+       offset: 300,
+       duration: 1000, 
+      
+     });
+   }, []);
   return (
     <div className="bg-primary min-h-screen flex items-center justify-between">
       <Container>

@@ -30,6 +30,7 @@ const Gallery = () => {
   useEffect(() => {
     // Initialize AOS
     AOS.init({
+      offset: 300,
       duration: 1000, // Set the duration of animations
       easing: "ease-in-out", // Optional: Set easing for the animations
       once: true, // Optional: Only animate once
@@ -51,7 +52,11 @@ const Gallery = () => {
   };
 
   return (
-    <div id="gallery" className="max-w-6xl mx-auto text-center p-6">
+    <div
+      id="gallery"
+      className="max-w-6xl mx-auto text-center p-6"
+      data-aos="zoom-in"
+    >
       <h2 className="text-2xl font-bold text-green-700 mb-4">GALLERY</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -66,8 +71,8 @@ const Gallery = () => {
             <img
               src={img}
               alt={`Gallery ${index + 1}`}
-              className="w-full h-60 object-cover group-hover:w-[400px] group-hover:h-[300px] rounded-lg shadow-md transition-transform duration-300 group-hover:scale-110 cursor-pointer"
-              data-aos="fade-up"
+              className="w-full h-60 object-cover  group-hover:w-[400px] group-hover:h-[300px] rounded-lg shadow-md transition-transform duration-700 group-hover:scale-110 cursor-pointer"
+              data-aos="fade-left"
               // Click to open modal
             />
             {/* Plus icon that appears on hover */}
