@@ -68,13 +68,16 @@ const chefs = [
   // Add more chefs as needed
 ];
 
+
 const Chef = () => {
+
   useEffect(() => {
-    // Initialize AOS
+    
     AOS.init({
       duration: 1000, // Set the duration of animations
       easing: "ease-in-out", // Optional: Set easing for the animations
-      once: true, // Optional: Only animate once
+      once: true,
+    
     });
   }, []);
 
@@ -139,6 +142,7 @@ const Chef = () => {
         </Swiper>
       </div>
     </Container>
+
   );
 };
 
