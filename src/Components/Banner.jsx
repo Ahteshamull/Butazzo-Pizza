@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../Layout/Container";
 import Image1 from "../assets/burger.png";
 import Image2 from "../assets/pizza.png";
@@ -42,6 +42,14 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+   useEffect(() => {
+      // Initialize AOS
+      AOS.init({
+        duration: 1000, // Set the duration of animations
+        easing: "ease-in-out", // Optional: Set easing for the animations
+        once: true, // Optional: Only animate once
+      });
+    }, []);
   return (
     <div className="bg-primary min-h-screen flex items-center justify-between">
       <Container>

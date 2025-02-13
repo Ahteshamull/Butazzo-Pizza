@@ -13,7 +13,7 @@ const customIcon = new L.Icon({
 
 const Map = () => {
   return (
-    <div className="h-[500px] w-full">
+    <div id="contact" className="h-[500px] w-full">
       <MapContainer
         center={[40.4093, 49.8671]}
         zoom={12}

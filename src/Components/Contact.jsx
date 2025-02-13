@@ -13,7 +13,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="bg-yellow">
+    <div id="contact" className="bg-yellow">
       <Container>
         <footer className="text-white py-10 px-5 md:px-20">
           <div className="grid md:grid-cols-3 gap-8 text-sm">

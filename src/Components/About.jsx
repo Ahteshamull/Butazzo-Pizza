@@ -5,19 +5,22 @@ import "aos/dist/aos.css"; // Import AOS styles
 
 const About = () => {
   useEffect(() => {
-    // Initialize AOS
+ 
     AOS.init({
-      duration: 1000, // Set animation duration
-      easing: "ease-in-out", // Set easing type
-      once: true, // Animation occurs only once when in view
+      offset: 200,
+      duration: 600,
+      easing: "ease-in-sine",
+      delay: 100, 
+      once: true, 
     });
+    AOS.refresh()
   }, []);
 
   return (
     <Container>
       <div
         id="about"
-        className="relative bg-yellow mt-10 py-12 px-6 md:px-12 flex flex-col gap-5 md:flex-row items-center justify-between"
+        className="relative max-w-full bg-yellow mt-10 py-12 px-6 md:px-12 flex flex-col gap-5 md:flex-row items-center justify-between"
       >
         {/* Left Section - Text */}
         <div

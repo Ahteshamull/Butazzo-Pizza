@@ -37,6 +37,7 @@ const Reservation = () => {
 
   return (
     <div
+      id="reservation"
       className="flex justify-center items-center py-10 px-5 bg-gray-100"
       style={{
         backgroundImage: `url('assets/reservation.jpg')`,

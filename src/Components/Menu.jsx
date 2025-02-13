@@ -19,42 +19,42 @@ const menuItems = [
     description:
       "In a large bowl, combine bison, coriander, and ground mustard.",
     price: "$13.50",
-    img: "assets/beef-burger-xs.jpg",
+    img: "assets/bison-burger-xs.jpg",
     category: "Burger",
   },
   {
     name: "Black Bean Burger",
     description: "Spiced up with chili sauce, cumin, garlic and chili powder.",
     price: "$9.27",
-    img: "assets/beef-burger-xs.jpg",
+    img: "assets/black-bean-burger-xs.jpg",
     category: "Burger",
   },
   {
     name: "Elk Burger",
     description: "Ground elk meat, red onion, cayenne pepper, black pepper.",
     price: "$18.90",
-    img: "assets/beef-burger-xs.jpg",
+    img: "assets/elk-burger-xs.jpg",
     category: "Burger",
   },
   {
     name: "Margherita Pizza",
     description: "Classic pizza with tomato, mozzarella, and fresh basil.",
     price: "$15.00",
-    img: "assets/margherita-pizza.jpg",
+    img: "assets/pizza-kebab-lg.jpg",
     category: "Pizza",
   },
   {
     name: "Pepperoni Pizza",
     description: "Pepperoni, mozzarella cheese, and marinara sauce.",
     price: "$16.00",
-    img: "assets/pepperoni-pizza.jpg",
+    img: "assets/pizza-kebab-lg.jpg",
     category: "Pizza",
   },
   {
     name: "Veggie Pizza",
     description: "Loaded with bell peppers, olives, mushrooms, and onions.",
     price: "$14.50",
-    img: "assets/veggie-pizza.jpg",
+    img: "assets/pizza-kebab-lg.jpg",
     category: "Pizza",
   },
   {
@@ -62,23 +62,17 @@ const menuItems = [
     description:
       "Crisp romaine lettuce, Caesar dressing, croutons, and parmesan.",
     price: "$8.99",
-    img: "assets/caesar-salad.jpg",
+    img: "assets/ambrosia-salad-lg.jpg",
     category: "Salad",
   },
   {
     name: "Tomato Soup",
     description: "A warm and comforting tomato soup with a creamy finish.",
     price: "$7.50",
-    img: "assets/tomato-soup.jpg",
+    img: "assets/chicken-noodle-soup-xs.jpg",
     category: "Soup",
   },
-  {
-    name: "Lemonade",
-    description: "Refreshing lemonade made from fresh lemons.",
-    price: "$4.00",
-    img: "assets/lemonade.jpg",
-    category: "Drinks",
-  },
+ 
 ];
 
 const Menu = () => {
@@ -103,20 +97,16 @@ const Menu = () => {
   };
 
   useEffect(() => {
-    // Initialize AOS
-    AOS.init({
-      duration: 1000, // Animation duration
-      easing: "ease-out-back", // Easing for animation
-      once: true, // Animations trigger once when the element is in view
-    });
+    
+    AOS.init();
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto text-center p-4">
+    <div id="menus" className="max-w-4xl mx-auto text-center p-4">
       <h2
         className="text-2xl font-bold text-green-700 mb-4"
         data-aos="fade-up"
-        data-aos-delay="100"
+        data-aos-duration="3000"
       >
         OUR MENUS
       </h2>

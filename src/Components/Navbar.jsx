@@ -2,17 +2,24 @@ import React, { useState, useEffect } from "react";
 import Container from "../Layout/Container";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaSearch, FaRegClock, FaPhone, FaBars, FaTimes } from "react-icons/fa";
+import { HashLink } from "react-router-hash-link"; // Import HashLink
 import AOS from "aos"; // Import AOS
 import "aos/dist/aos.css"; // Import AOS styles
 
 const menu = [
   { id: 1, name: "Home", link: "/" },
-  { id: 2, name: "About", link: "/about" },
-  { id: 3, name: "Chef", link: "/chef" },
-  { id: 4, name: "Menus", link: "/menus" },
-  { id: 5, name: "Gallery", link: "/gallery" },
-  { id: 6, name: "Reservation", link: "/reservation" },
-  { id: 7, name: "Contact", link: "/contact" },
+  
+  { id: 2, name: "About", link: "/#about" },
+
+  { id: 3, name: "Chef", link: "/#chef" },
+
+  { id: 4, name: "Menus", link: "/#menus" },
+
+  { id: 5, name: "Gallery", link: "/#gallery" },
+
+  { id: 6, name: "Reservation", link: "/#reservation" },
+
+  { id: 7, name: "Contact", link: "/#contact" },
 ];
 
 const Navbar = () => {
@@ -21,7 +28,6 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState("/");
 
   // Initialize AOS on component mount
-
 
   const toggleMenu = () => {
     setIsSearchOpen(false); // Close search when menu is opened
@@ -113,8 +119,8 @@ const Navbar = () => {
           <ul className="hidden md:flex gap-8">
             {menu.map((item) => (
               <li key={item.id}>
-                <a
-                  href={item.link}
+                <HashLink
+                  to={item.link} // Use HashLink instead of <a>
                   className={`text-white text-sm font-semibold uppercase hover:text-yellow transition ${
                     activeMenu === item.link
                       ? "underline decoration-yellow mt-[-2px]"
@@ -134,7 +140,7 @@ const Navbar = () => {
                     </span>
                   )}
                   {item.name}
-                </a>
+                </HashLink>
               </li>
             ))}
           </ul>
@@ -169,8 +175,8 @@ const Navbar = () => {
           <ul className="flex flex-col items-center mt-4 space-y-6">
             {menu.map((item) => (
               <li key={item.id}>
-                <a
-                  href={item.link}
+                <HashLink
+                  to={item.link} // Use HashLink instead of <a>
                   className={`text-lg font-semibold uppercase hover:text-yellow transition ${
                     activeMenu === item.link
                       ? "underline decoration-yellow mt-[-2px]"
@@ -190,7 +196,7 @@ const Navbar = () => {
                     </span>
                   )}
                   {item.name}
-                </a>
+                </HashLink>
               </li>
             ))}
 
