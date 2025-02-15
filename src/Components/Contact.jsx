@@ -18,7 +18,7 @@ const Contact = () => {
         <footer className="text-white py-10 px-5 md:px-20">
           <div className="grid md:grid-cols-3 gap-8 text-sm">
             {/* About Us */}
-            <div data-aos="fade-up">
+            <div data-aos="fade-right">
               <h2 className="font-bold text-lg mb-2">ABOUT US</h2>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -28,7 +28,7 @@ const Contact = () => {
             </div>
 
             {/* Working Hours */}
-            <div data-aos="fade-up" data-aos-delay="200">
+            <div data-aos="fade-right" data-aos-delay="200">
               <h2 className="font-bold text-lg mb-2">WORKING HOURS</h2>
               <ul className="space-y-1">
                 <li>
@@ -56,7 +56,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Us */}
-            <div data-aos="fade-up" data-aos-delay="400">
+            <div data-aos="fade-right" data-aos-delay="400">
               <h2 className="font-bold text-lg mb-2">CONTACT US</h2>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">

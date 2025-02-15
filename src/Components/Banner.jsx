@@ -51,7 +51,7 @@ const Banner = () => {
      });
    }, []);
   return (
-    <div className="bg-primary min-h-screen flex items-center justify-between">
+    <div id="banner" className="bg-primary min-h-screen flex items-center justify-between">
       <Container>
         <Slider {...settings}>
           {image.map((item) => (

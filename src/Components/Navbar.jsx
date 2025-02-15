@@ -7,7 +7,7 @@ import AOS from "aos"; // Import AOS
 import "aos/dist/aos.css"; // Import AOS styles
 
 const menu = [
-  { id: 1, name: "Home", link: "/" },
+  { id: 1, name: "Home", link: "/#banner" },
   
   { id: 2, name: "About", link: "/#about" },
 
@@ -30,18 +30,17 @@ const Navbar = () => {
   // Initialize AOS on component mount
 
   const toggleMenu = () => {
-    setIsSearchOpen(false); // Close search when menu is opened
-    setIsMenuOpen(!isMenuOpen); // Toggle menu open/close
+    setIsSearchOpen(false); 
   };
 
   const toggleSearch = () => {
-    setIsMenuOpen(false); // Close menu when search is opened
-    setIsSearchOpen(!isSearchOpen); // Toggle search open/close
+    setIsMenuOpen(false);
+    setIsSearchOpen(!isSearchOpen); 
   };
 
   const handleMenuClick = (link) => {
     setActiveMenu(link);
-    setIsMenuOpen(false); // Close the menu after selection
+    setIsMenuOpen(false); 
   };
 
   return (
