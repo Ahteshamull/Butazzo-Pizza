@@ -47,18 +47,18 @@ const Reservation = () => {
       }}
     >
       <div
-        className="w-full max-w-lg bg-white p-8 rounded-lg shadow-md"
-        data-aos="fade-up" // Applying fade-up animation to the form container
+        className="w-full max-w-lg bg-yellow p-8 rounded-lg shadow-md"
+        data-aos="fade-bottom" // Applying fade-up animation to the form container
       >
         <h2
-          className="text-3xl font-bold text-center text-orange-600 mb-4"
+          className="text-3xl font-bold text-center text-white mb-4"
           data-aos="fade-up"
           data-aos-delay="100"
         >
           Online Reservation
         </h2>
         <p
-          className="text-center text-gray-500 mb-6"
+          className="text-center text-white mb-6"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -71,7 +71,7 @@ const Reservation = () => {
             <div className="flex-1" data-aos="fade-up" data-aos-delay="300">
               <label
                 htmlFor="name"
-                className="block text-gray-700 font-medium mb-2"
+                className="block text-white font-medium mb-2"
               >
                 Your Name
               </label>
@@ -81,14 +81,14 @@ const Reservation = () => {
                 id="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-4 py-2 border text-white rounded-lg"
                 required
               />
             </div>
             <div className="flex-1" data-aos="fade-up" data-aos-delay="400">
               <label
                 htmlFor="email"
-                className="block text-gray-700 font-medium mb-2"
+                className="block text-white font-medium mb-2"
               >
                 Your Email
               </label>
@@ -98,7 +98,7 @@ const Reservation = () => {
                 id="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-4 py-2 border text-white rounded-lg"
                 required
               />
             </div>
@@ -108,7 +108,7 @@ const Reservation = () => {
             <div className="flex-1" data-aos="fade-up" data-aos-delay="500">
               <label
                 htmlFor="phone"
-                className="block text-gray-700 font-medium mb-2"
+                className="block text-white font-medium mb-2"
               >
                 Phone
               </label>
