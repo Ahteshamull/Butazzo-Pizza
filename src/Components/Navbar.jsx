@@ -30,9 +30,8 @@ const Navbar = () => {
   // Initialize AOS on component mount
 
   const toggleMenu = () => {
-    setIsSearchOpen(false); 
+    setIsMenuOpen(!isMenuOpen); // This should toggle the state
   };
-
   const toggleSearch = () => {
     setIsMenuOpen(false);
     setIsSearchOpen(!isSearchOpen); 
