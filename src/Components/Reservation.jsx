@@ -65,7 +65,7 @@ const Reservation = () => {
               <div className="lg:flex sm:inline-block gap-4">
                 <div
                   className="flex-1"
-                  data-aos="fade-up-left"
+                  data-aos="fade-up-right"
                   data-aos-delay="300"
                 >
                   <label

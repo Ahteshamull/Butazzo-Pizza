@@ -78,7 +78,7 @@ const Gallery = () => {
       {/* Modal for the image */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          className=" inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
           onClick={closeModal}
         >
           <div className="relative w-full h-full max-w-4xl">
