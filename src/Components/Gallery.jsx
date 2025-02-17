@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaPlus, FaTimes } from "react-icons/fa";
-import { MdOutlineZoomOutMap } from "react-icons/md"; // Icons for the plus and close buttons
+import { MdOutlineZoomOutMap } from "react-icons/md";
+import Container from "../Layout/Container";// Icons for the plus and close buttons
 import AOS from "aos"; // Import AOS
 import "aos/dist/aos.css"; // Import AOS styles
 
@@ -46,6 +47,7 @@ const Gallery = () => {
   };
 
   return (
+    <Container>
     <div
       id="gallery"
       className="max-w-6xl mx-auto text-center p-6"
@@ -78,10 +80,10 @@ const Gallery = () => {
       {/* Modal for the image */}
       {isModalOpen && (
         <div
-          className=" inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          className="fixed top-0 left-0 right-0 bottom-0  inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
           onClick={closeModal}
         >
-          <div className="relative w-full h-full max-w-4xl">
+          <div className="relative w-full h-[100vh] max-w-4xl">
             <img
               src={currentImage}
               alt="Zoomed Image"
@@ -110,6 +112,8 @@ const Gallery = () => {
         </button>
       </div>
     </div>
+
+    </Container>
   );
 };
 
