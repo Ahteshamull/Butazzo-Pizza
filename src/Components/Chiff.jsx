@@ -71,14 +71,7 @@ const chefs = [
 
 const Chef = () => {
 
-  useEffect(() => {
-    
-    AOS.init({
-      offset: 300,
-      duration: 1000, 
-     
-    });
-  }, []);
+ 
 
   return (
     <Container>

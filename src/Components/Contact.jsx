@@ -4,13 +4,7 @@ import "aos/dist/aos.css";
 import Container from "../Layout/Container";
 
 const Contact = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      easing: "ease-out-back", // Easing for animation
-      once: true, // Trigger animations only once
-    });
-  }, []);
+
 
   return (
     <div id="contact" className="bg-yellow">

@@ -1,20 +1,9 @@
 import React, { useEffect } from "react";
 import Container from "../Layout/Container";
-import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+ // Import AOS styles
 
 const About = () => {
-  useEffect(() => {
  
-    AOS.init({
-      offset: 200,
-      duration: 600,
-      easing: "ease-in-sine",
-      delay: 100, 
-      once: true, 
-    });
-    AOS.refresh()
-  }, []);
 
   return (
     <Container>
@@ -41,7 +30,7 @@ const About = () => {
         {/* Right Section - Image */}
         <div
           className="relative w-full md:w-1/2 mt-6 md:mt-0"
-          data-aos="fade-left" // AOS animation for right section
+          data-aos="fade-right" // AOS animation for right section
         >
           <div className="w-full max-w-md mx-auto md:ml-6 relative">
             <img

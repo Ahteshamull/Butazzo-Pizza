@@ -42,23 +42,16 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
- useEffect(() => {
-     
-     AOS.init({
-       offset: 300,
-       duration: 1000, 
-      
-     });
-   }, []);
+
   return (
-    <div id="banner" className="bg-primary min-h-screen flex items-center justify-between">
+    <div
+      id="banner"
+      className="bg-primary min-h-screen flex items-center justify-between"
+    >
       <Container>
-        <Slider {...settings}>
+        <Slider {...settings} >
           {image.map((item) => (
-            <div
-              className="flex flex-col md:flex-row sm:col-span-6 justify-between items-center px-4 md:px-8 lg:px-12"
-              data-aos="fade-right"
-            >
+            <div className="flex flex-col md:flex-row sm:col-span-6 justify-between items-center px-4 md:px-8 lg:px-12">
               {/* Image Section */}
               <div className=" lg:flex gap-10 sm:flex-col-6 items-center">
                 <div className="relative">
@@ -66,8 +59,12 @@ const Banner = () => {
                     src={item.image}
                     alt="Delicious Burger"
                     className="w-full  max-w-sm md:max-w-md lg:max-w-lg "
+                    data-aos="fade-up"
                   />
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-24 h-24 md:w-28 md:h-28 flex items-center justify-center text-center rounded-full bg-yellow text-white">
+                  <div
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-24 h-24 md:w-28 md:h-28 flex items-center justify-center text-center rounded-full bg-yellow text-white"
+                    data-aos="fade-right"
+                  >
                     <span className="text-xl md:text-2xl font-bold">
                       {item.discount}
                     </span>
@@ -76,7 +73,7 @@ const Banner = () => {
 
                 <div
                   className="text-center md:text-right mt-10 md:mt-0 md:ml-10 max-w-lg"
-                  data-aos="fade-top"
+                  data-aos="slide-up"
                 >
                   <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold text-white">
                     {item.title}

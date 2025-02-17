@@ -68,7 +68,7 @@ const Navbar = () => {
           </div>
 
           {/* Search Icon for Desktop */}
-          <div className="relative" data-aos="fade-left">
+          <div className="relative" data-aos="fade-right">
             <div
               className="text-yellow cursor-pointer hidden md:block"
               onClick={toggleSearch}
@@ -78,7 +78,10 @@ const Navbar = () => {
 
             {/* Search Bar for Desktop */}
             {isSearchOpen && (
-              <div className="absolute top-[-5px] right-0 flex items-center">
+              <div
+                className="absolute top-[-5px] right-0 flex items-center"
+                data-aos="zoom-in-up"
+              >
                 <input
                   type="search"
                   placeholder="Search..."
@@ -98,6 +101,7 @@ const Navbar = () => {
           <button
             className="md:hidden text-white text-2xl"
             onClick={toggleMenu}
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
             data-aos="fade-right"
           >
             {isMenuOpen ? <FaTimes /> : <FaBars />}
@@ -109,12 +113,17 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex justify-between items-center py-3 px-4 md:px-0">
           <div>
-            <a href="/" data-aos="fade-down">
-              <img src="/assets/logo.png" alt="Logo" className="h-10" />
+            <a href="/">
+              <img
+                src="/assets/logo.png"
+                alt="Logo"
+                className="h-10"
+                data-aos="slide-down"
+              />
             </a>
           </div>
 
-          <ul className="hidden md:flex gap-8">
+          <ul className="hidden md:flex gap-8" data-aos="slide-right">
             {menu.map((item) => (
               <li key={item.id}>
                 <HashLink
@@ -152,8 +161,10 @@ const Navbar = () => {
         {/* Mobile Menu (Slide-in from Right & Closes on Button Click) */}
         <div
           className={`fixed top-0 right-0 w-64 h-full bg-primary text-white transform ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out z-50 md:hidden shadow-lg`}
+            isMenuOpen
+              ? "translate-x-0 opacity-100"
+              : "translate-x-full opacity-0"
+          } transition-all duration-300 ease-in-out z-50 md:hidden shadow-lg`}
         >
           <button
             className="absolute top-4 cursor-pointer right-4 text-2xl"
@@ -199,7 +210,7 @@ const Navbar = () => {
             ))}
 
             {/* Search Icon Inside Mobile Menu */}
-            <div className="flex justify-center mt-6" data-aos="fade-left">
+            <div className="flex justify-center mt-6" data-aos="fade-up">
               <div
                 className="text-yellow cursor-pointer"
                 onClick={toggleSearch}

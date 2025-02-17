@@ -26,14 +26,7 @@ const Reservation = () => {
     console.log(formData);
   };
 
-  // Initialize AOS on component mount
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      easing: "ease-out-back", // Easing for animation
-      once: true, // Animations trigger only once when element is in view
-    });
-  }, []);
+ 
 
   return (
     <div

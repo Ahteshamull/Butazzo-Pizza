@@ -96,15 +96,6 @@ const Menu = () => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    
-    AOS.init({
-      offset: 300,
-      duration: 1000, // Set the duration of animations
-      easing: "ease-in-out", // Optional: Set easing for the animations
-      once: true, // Optional: Only animate once
-    });
-  }, []);
 
   return (
     <div id="menus" className="max-w-4xl mx-auto text-center p-4">
