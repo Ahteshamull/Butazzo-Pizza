@@ -62,7 +62,7 @@ const Reservation = () => {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="flex gap-4">
+              <div className="lg:flex sm:inline-block gap-4">
                 <div
                   className="flex-1"
                   data-aos="fade-up-left"
@@ -107,7 +107,7 @@ const Reservation = () => {
                 </div>
               </div>
 
-              <div className="flex gap-4">
+              <div className=" lg:flex gap-4">
                 <div className="flex-1" data-aos="fade-up" data-aos-delay="500">
                   <label
                     htmlFor="phone"
