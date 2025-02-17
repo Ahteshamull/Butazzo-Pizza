@@ -99,12 +99,16 @@ const Chef = () => {
                   src={chef.img}
                   alt={chef.name}
                   className="w-full h-full object-cover"
+                  data-aos="slide-right"
                 />
                 {/* Overlay on hover */}
                 <div className="absolute inset-0  opacity-50 group-hover:opacity-70 group-hover:bg-primary/90 group-hover:max-w-full transition duration-300"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100   transition duration-300">
                   <h3 className="text-lg font-bold">{chef.name}</h3>
-                  <div className="flex justify-center space-x-4 mt-2 group-hover:text-yellow">
+                  <div
+                    className="flex justify-center space-x-4 mt-2 group-hover:text-yellow"
+                    data-aos="slide-up"
+                  >
                     <a
                       href={chef.socialLinks.facebook}
                       target="_blank"
@@ -134,7 +138,6 @@ const Chef = () => {
         </Swiper>
       </div>
     </Container>
-
   );
 };
 

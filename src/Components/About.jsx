@@ -14,7 +14,7 @@ const About = () => {
         {/* Left Section - Text */}
         <div
           className="text-white p-8 md:p-12 max-w-lg md:max-w-xl lg:max-w-2xl shadow-lg relative z-10"
-          data-aos="fade-right" // AOS animation for left section
+          data-aos="fade-up-right" // AOS animation for left section
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-4">ABOUT US</h2>
           <p className="text-sm md:text-base leading-relaxed">

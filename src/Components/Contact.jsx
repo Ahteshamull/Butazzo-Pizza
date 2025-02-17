@@ -26,7 +26,7 @@ const Contact = () => {
               <h2 className="font-bold text-lg mb-2">WORKING HOURS</h2>
               <ul className="space-y-1">
                 <li>
-                  Monday <span className="float-right">Closed</span>
+                  Monday  <span className="float-right">Closed</span>
                 </li>
                 <li>
                   Tuesday <span className="float-right">10 am - 12 am</span>

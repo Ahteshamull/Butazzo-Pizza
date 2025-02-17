@@ -15,6 +15,20 @@ const menuItems = [
     category: "Burger",
   },
   {
+    name: "Beef Burger",
+    description: "Stack your buns with cheese, bacon, lettuce and more.",
+    price: "$12.95",
+    img: "assets/beef-burger-xs.jpg",
+    category: "Burger",
+  },
+  {
+    name: "Beef Burger",
+    description: "Stack your buns with cheese, bacon, lettuce and more.",
+    price: "$12.95",
+    img: "assets/beef-burger-xs.jpg",
+    category: "Burger",
+  },
+  {
     name: "Bison Burger",
     description:
       "In a large bowl, combine bison, coriander, and ground mustard.",
@@ -29,13 +43,7 @@ const menuItems = [
     img: "assets/black-bean-burger-xs.jpg",
     category: "Burger",
   },
-  {
-    name: "Elk Burger",
-    description: "Ground elk meat, red onion, cayenne pepper, black pepper.",
-    price: "$18.90",
-    img: "assets/elk-burger-xs.jpg",
-    category: "Burger",
-  },
+
   {
     name: "Margherita Pizza",
     description: "Classic pizza with tomato, mozzarella, and fresh basil.",
@@ -72,7 +80,6 @@ const menuItems = [
     img: "assets/chicken-noodle-soup-xs.jpg",
     category: "Soup",
   },
- 
 ];
 
 const Menu = () => {
@@ -96,7 +103,6 @@ const Menu = () => {
     setIsModalOpen(false);
   };
 
-
   return (
     <div id="menus" className="max-w-4xl mx-auto text-center p-4">
       <h2
@@ -110,7 +116,7 @@ const Menu = () => {
       {/* Category Buttons */}
       <div
         className="flex justify-center gap-3 mb-6"
-        data-aos="fade-down"
+        data-aos="fade-down-right"
         data-aos-delay="200"
       >
         {categories.map((category) => (
@@ -129,26 +135,28 @@ const Menu = () => {
       </div>
 
       {/* Menu Items Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {/* Display filtered menu items */}
+      <div className="grid  grid-cols-1 sm:grid-cols-2 mt-20 lg:grid-cols-3 gap-[80px] p-6 bg-gray-100 ">
         {filteredItems.map((item, index) => (
           <div
             key={index}
-            className="border rounded-lg p-4 text-center shadow-md"
+            className=" bg-white border border-gray-200 rounded-lg shadow-lg p-6 text-center hover:bg-yellow hover:text-gray-100 cursor-pointer"
             data-aos="zoom-in-up" // Unique animation for menu item
             data-aos-delay={`${index * 100}`} // Stagger animation delays
           >
-            <div className="relative">
+            <div className="relative  ">
               <img
                 src={item.img}
                 alt={item.name}
-                className="w-full h-40 object-cover rounded-lg mb-4 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-110"
+                className="w-32 mx-auto absolute top-[-90px] lg:right-[20px] sm:right-[45px] h-32 rounded-full object-cover  mb-[300px] cursor-pointer transition-transform  ease-in-out transform hover:scale-110"
+                data-aos="ease-in-quart"
                 onClick={() => openModal(item.img)} // Open modal on image click
               />
             </div>
-            <h3 className="text-lg font-bold text-orange-600">{item.name}</h3>
-            <p className="text-gray-600 text-sm my-2">{item.description}</p>
-            <p className="text-green-600 font-semibold">{item.price}</p>
+            <div className="mt-[100px] ">
+              <h3 className="text-lg font-bold text-orange-600">{item.name}</h3>
+              <p className="text-gray-600 text-sm my-2">{item.description}</p>
+              <p className="text-green-600 font-semibold">{item.price}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -163,8 +171,8 @@ const Menu = () => {
             <img
               src={selectedImage}
               alt="Zoomed Image"
-              className="w-full h-full object-contain"
-              data-aos="fade-in" // Zoom-in animation on modal image
+              className="w-full h-full object-contain "
+              data-aos="zoom-in" // Zoom-in animation on modal image
               data-aos-duration="600"
             />
             <button
